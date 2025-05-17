@@ -1,2 +1,8 @@
 # PrisonPicks Tutorial
 
+Bountiful Pickaxe:
+  Name: "&ePickaxeName"
+  Lore:
+    - "Lore1"
+    - "Lore2"
+    - "Lore3"

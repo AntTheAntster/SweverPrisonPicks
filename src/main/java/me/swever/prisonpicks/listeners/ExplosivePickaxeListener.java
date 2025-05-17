@@ -34,7 +34,6 @@ public class ExplosivePickaxeListener implements Listener {
                         player.getInventory().addItem(new ItemStack(block.getType()));
                         block.setType(Material.AIR);
 
-
                         event.setDropItems(false);
                     }
                 }

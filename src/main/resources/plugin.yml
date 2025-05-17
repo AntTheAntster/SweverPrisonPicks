@@ -1,0 +1,7 @@
+main: me.swever.prisonpicks.PrisonPicks
+name: PrisonPicks
+version: 1.0
+api-version: 1.21
+commands:
+  pick:
+    description: Main Command

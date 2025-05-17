@@ -1,7 +1,25 @@
 # PrisonPicks Tutorial
 
+Block Pickaxe:
+  Name: "&eBlockPickaxe"
+  Lore:
+    - "Lore1"
+    - "Lore2"
+    - "Lore3"
 Bountiful Pickaxe:
   Name: "&ePickaxeName"
+  Lore:
+    - "Lore1"
+    - "Lore2"
+    - "Lore3"
+Explosive Pickaxe:
+  Name: "&eExplosive Pickaxe"
+  Lore:
+    - "Lore1"
+    - "Lore2"
+    - "Lore3"
+Smelters Pickaxe:
+  Name: "&eSmelters Pickaxe"
   Lore:
     - "Lore1"
     - "Lore2"

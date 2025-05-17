@@ -1,6 +1,7 @@
 package me.swever.prisonpicks.listeners;
 
 import me.swever.prisonpicks.items.custom.BountifulPickaxe;
+import me.swever.prisonpicks.utils.BlockPriority;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -44,6 +45,8 @@ public class BountifulPickaxeListener implements Listener {
                         Block block = centreBlock.getWorld().getBlockAt(centreX + x, centreY + y, centreZ + z);
                         if (block.equals(centreBlock)) continue;
                         if (block.getType().equals(Material.AIR)) continue;
+                            //Added this in not sure if thats how it works
+                        if (!BlockPriority.valueMap.containsKey(block.getType())) continue ;
 
                         if (block.getType().equals(Material.EMERALD_BLOCK)){
                             event.setDropItems(false);

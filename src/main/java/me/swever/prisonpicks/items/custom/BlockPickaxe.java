@@ -16,7 +16,6 @@ public class BlockPickaxe extends BasePickaxe {
         this.plugin = plugin;
         makeBlockPickaxe();
     }
-
     //Make custom pickaxe name and point it to the BASE
     public ItemStack blockPickaxe = new ItemStack(basePickaxe());
 
@@ -24,10 +23,10 @@ public class BlockPickaxe extends BasePickaxe {
 
     private void makeBlockPickaxe(){
         ItemMeta meta = blockPickaxe.getItemMeta();
-        meta.setDisplayName(ChatColour.message("&eBlock &aPickaxe"));
-        lore.add(ChatColour.message("&cTest1"));
-        lore.add(ChatColour.message("&cTest2"));
-        lore.add(ChatColour.message("&cTest3"));
+        for (String s : plugin.getConfig().getStringList("Block Pickaxe.Lore")) {
+            lore.add(ChatColour.message(s));
+        }
+        meta.setDisplayName(ChatColour.message(plugin.getConfig().getString("Block Pickaxe.Name")));
         meta.setLore(lore);
 
         blockPickaxe.setItemMeta(meta);

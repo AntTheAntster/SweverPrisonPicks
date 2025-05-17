@@ -22,10 +22,11 @@ public class SmeltersPickaxe extends BasePickaxe {
 
     private void makeSmeltersPickaxe(){
         ItemMeta meta = smeltersPickaxe.getItemMeta();
-        meta.setDisplayName(ChatColour.message("&bSmelters &aPickaxe"));
-        lore.add(ChatColour.message("&cTest1"));
-        lore.add(ChatColour.message("&cTest2"));
-        lore.add(ChatColour.message("&cTest3"));
+        for (String s : plugin.getConfig().getStringList("Smelters Pickaxe.Lore")){
+            lore.add(ChatColour.message(s));
+        }
+
+        meta.setDisplayName(ChatColour.message(plugin.getConfig().getString("Explosive Pickaxe.Name")));
         meta.setLore(lore);
 
         smeltersPickaxe.setItemMeta(meta);

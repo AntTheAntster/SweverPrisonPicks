@@ -22,10 +22,11 @@ public class ExplosivePickaxe extends BasePickaxe {
 
     private void makeExplosivePickaxe(){
         ItemMeta meta = explosivePickaxe.getItemMeta();
-        meta.setDisplayName(ChatColour.message("&cExplosive &aPickaxe"));
-        lore.add(ChatColour.message("&cTest1"));
-        lore.add(ChatColour.message("&cTest2"));
-        lore.add(ChatColour.message("&cTest3"));
+        for (String s : plugin.getConfig().getStringList("Explosive Pickaxe.Lore")){
+            lore.add(ChatColour.message(s));
+        }
+
+        meta.setDisplayName(ChatColour.message(plugin.getConfig().getString("Explosive Pickaxe.Name")));
         meta.setLore(lore);
 
         explosivePickaxe.setItemMeta(meta);

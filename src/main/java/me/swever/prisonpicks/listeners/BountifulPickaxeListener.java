@@ -46,6 +46,9 @@ public class BountifulPickaxeListener implements Listener {
                         if (block.equals(centreBlock)) continue;
                         if (block.getType().equals(Material.AIR)) continue;
                             //Added this in not sure if thats how it works
+
+
+
                         if (!BlockPriority.valueMap.containsKey(block.getType())) continue ;
 
                         if (block.getType().equals(Material.EMERALD_BLOCK)){

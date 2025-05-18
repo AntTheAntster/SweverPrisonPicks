@@ -20,6 +20,7 @@ Explosive Pickaxe:
     - "Lore3"
 Smelters Pickaxe:
   Name: "&eSmelters Pickaxe"
+  ChatMessage:
   Lore:
     - "Lore1"
     - "Lore2"

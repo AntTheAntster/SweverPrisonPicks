@@ -2,6 +2,7 @@ package me.swever.prisonpicks;
 
 import me.swever.prisonpicks.commands.TestCommand;
 import me.swever.prisonpicks.items.custom.BlockPickaxe;
+import me.swever.prisonpicks.items.custom.BountifulPickaxe;
 import me.swever.prisonpicks.items.custom.ExplosivePickaxe;
 import me.swever.prisonpicks.items.custom.SmeltersPickaxe;
 import me.swever.prisonpicks.listeners.BlockPickaxeListener;
@@ -16,6 +17,7 @@ public class PrisonPicks extends JavaPlugin {
     private BlockPickaxe bp;
     private SmeltersPickaxe sp;
     private ExplosivePickaxe ep;
+    private BountifulPickaxe btp;
 
     private PluginManager pm = Bukkit.getPluginManager();//Plugin Manager for Registering Events
 
@@ -36,7 +38,8 @@ public class PrisonPicks extends JavaPlugin {
 
         registerClasses();
 
-        getCommand("pick").setExecutor(new TestCommand(bp,sp, ep));
+        this.getCommand("pick").setExecutor(
+                new TestCommand(bp, sp, ep, btp ));
 
         pm.registerEvents(new BlockPickaxeListener(bp), this);
         pm.registerEvents(new SmeltersPickaxeListener(sp), this);
@@ -47,5 +50,6 @@ public class PrisonPicks extends JavaPlugin {
         bp = new BlockPickaxe(this);
         sp = new SmeltersPickaxe(this);
         ep = new ExplosivePickaxe(this);
+        btp = new BountifulPickaxe(this);
     }
 }

@@ -55,7 +55,7 @@ public class BountifulPickaxeListener implements Listener {
                             Then check the hashmap for the returned block with the highest Integer (value) attached to it and then give the drops accordingly
                                 -> (Using a switch statement that I see you've taught yourself to use in the TestCommand Class).
                             Also FYI, It's easier to assign the HashMap to a local variable (A variable in this class) than to reference BlockPriority.valueMap each time you need the map.
-                                -> Just do [private HashMap<Material, Integer> values = BlockPriority.valueMap;] and then use [values.get(block.getType());] to get the value of the block.
+                                -> Just do [ private HashMap<Material, Integer> values = BlockPriority.valueMap; ] and then use [ values.get(block.getType()); ] to get the value of the block.
                                     -> You only need to check for "#containsKey()" once as that will return a true/false. To get the value of the actual block, you insert the block.getType()
                                         -> into "values.get()" (values.get(block.getType()) to be exact). Then do a reverse 'for' statement (Google it) to count down to the highest value.
                                             -> Then you will know what to give the player.

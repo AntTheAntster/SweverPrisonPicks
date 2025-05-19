@@ -25,3 +25,7 @@ Smelters Pickaxe:
     - "Lore1"
     - "Lore2"
     - "Lore3"
+
+Admin GUI:
+  Title: "&bAdmin Menu"
+  Size: 36

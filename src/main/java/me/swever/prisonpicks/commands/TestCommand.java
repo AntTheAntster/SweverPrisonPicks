@@ -1,30 +1,18 @@
 package me.swever.prisonpicks.commands;
 
-import me.swever.prisonpicks.items.custom.BlockPickaxe;
-import me.swever.prisonpicks.items.custom.BountifulPickaxe;
-import me.swever.prisonpicks.items.custom.ExplosivePickaxe;
-import me.swever.prisonpicks.items.custom.SmeltersPickaxe;
 import me.swever.prisonpicks.utils.ChatColour;
-import org.bukkit.Bukkit;
+import me.swever.prisonpicks.utils.Pickaxes;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.util.UUID;
-
 public class TestCommand implements CommandExecutor {
 
-    private BlockPickaxe blockPickaxe;
-    private SmeltersPickaxe smeltersPickaxe;
-    private ExplosivePickaxe explosivePickaxe;
-    private BountifulPickaxe bountifulPickaxe; //Correct
+    private Pickaxes pickaxes; //Correct
                                                                                                                         //Correct
-    public TestCommand(BlockPickaxe blockPickaxe, SmeltersPickaxe smeltersPickaxe, ExplosivePickaxe explosivePickaxe, BountifulPickaxe bountifulPickaxe){
-        this.blockPickaxe = blockPickaxe;
-        this.smeltersPickaxe = smeltersPickaxe;
-        this.explosivePickaxe = explosivePickaxe;
-        this.bountifulPickaxe = bountifulPickaxe; //Correct
+    public TestCommand(Pickaxes pickaxes) {
+        this.pickaxes = pickaxes;
     }
 
     @Override
@@ -81,19 +69,19 @@ public class TestCommand implements CommandExecutor {
          */
         switch (pickaxeName) {
             case "block":
-                target.getInventory().addItem(blockPickaxe.blockPickaxe);
+                target.getInventory().addItem(pickaxes.getBlockPickaxe());
                 sender.sendMessage(ChatColour.message("Block Pickaxe given to ") + target.getName());
                 break;
             case "smelter":
-                target.getInventory().addItem(smeltersPickaxe.smeltersPickaxe);
+                target.getInventory().addItem(pickaxes.getSmeltersPickaxe());
                 sender.sendMessage(ChatColour.message("Smelter Pickaxe given to ") + target.getName());
                 break;
             case "explosive":
-                target.getInventory().addItem(explosivePickaxe.explosivePickaxe);
+                target.getInventory().addItem(pickaxes.getExplosivePickaxe());
                 sender.sendMessage(ChatColour.message("Explosive Pickaxe given to") + target.getName());
                 break;
             case "bountiful":
-                target.getInventory().addItem(bountifulPickaxe.bountifulPickaxe);
+                target.getInventory().addItem(pickaxes.getBountifulPickaxe());
                 sender.sendMessage(ChatColour.message("Bountiful Pickaxe given to ") + target.getName());
 
                 break;

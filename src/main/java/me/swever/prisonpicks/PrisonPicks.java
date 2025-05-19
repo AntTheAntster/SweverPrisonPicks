@@ -6,10 +6,12 @@ import me.swever.prisonpicks.items.custom.BountifulPickaxe;
 import me.swever.prisonpicks.items.custom.ExplosivePickaxe;
 import me.swever.prisonpicks.items.custom.SmeltersPickaxe;
 import me.swever.prisonpicks.listeners.BlockPickaxeListener;
+import me.swever.prisonpicks.listeners.BountifulPickaxeListener;
 import me.swever.prisonpicks.listeners.ExplosivePickaxeListener;
 import me.swever.prisonpicks.listeners.SmeltersPickaxeListener;
 import me.swever.prisonpicks.listeners.other.AdminGUIListener;
 import me.swever.prisonpicks.menus.AdminGUI;
+import me.swever.prisonpicks.utils.BlockPriority;
 import me.swever.prisonpicks.utils.Pickaxes;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
@@ -20,6 +22,7 @@ public class PrisonPicks extends JavaPlugin {
     private SmeltersPickaxe sp;
     private ExplosivePickaxe ep;
     private BountifulPickaxe btp; //Correct
+    private BlockPriority blp;
 
     //Don't touch this class for now, I'll go over it with you.
     private AdminGUI adminGUI;
@@ -50,9 +53,8 @@ public class PrisonPicks extends JavaPlugin {
         pm.registerEvents(new BlockPickaxeListener(bp), this);
         pm.registerEvents(new SmeltersPickaxeListener(sp), this);
         pm.registerEvents(new ExplosivePickaxeListener(ep),this);
-        //What's missing here, I wonder? :)
+        pm.registerEvents(new BountifulPickaxeListener(btp),this);
 
-        //Don't touch this class for now, I'll go over it with you.
         pm.registerEvents(new AdminGUIListener(adminGUI, pickaxes), this);
     }
 
@@ -61,6 +63,7 @@ public class PrisonPicks extends JavaPlugin {
         sp = new SmeltersPickaxe(this);
         ep = new ExplosivePickaxe(this);
         btp = new BountifulPickaxe(this); //Correct
+        blp = new BlockPriority(this);
 
         //Don't touch these classes for now, I'll go over it with you.
         pickaxes = new Pickaxes(sp, ep, bp, btp);

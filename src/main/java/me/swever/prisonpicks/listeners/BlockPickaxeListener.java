@@ -1,7 +1,6 @@
 package me.swever.prisonpicks.listeners;
 
 import me.swever.prisonpicks.items.custom.BlockPickaxe;
-import me.swever.prisonpicks.utils.BlockPriority;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

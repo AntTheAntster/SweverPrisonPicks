@@ -12,6 +12,7 @@ public class AdminGUI {
     private Pickaxes pickaxes;
     public AdminGUI(PrisonPicks plugin, Pickaxes pickaxes) {
         this.plugin = plugin;
+        this.pickaxes = pickaxes;
 
         makeAdminGUI();
     }

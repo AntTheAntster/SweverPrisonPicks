@@ -17,7 +17,7 @@ public class EfficiencyUpgradeMenuListener implements Listener {
     public void onEfficiencyUpgrade(InventoryClickEvent event){
 
         Player player = (Player) event.getWhoClicked(); //Get the player in the inventory and assign them to the "player" variable
-        if (!event.getInventory().equals(upgradeListener.upgradeMenu(player))) return;
+        if (!event.getView().getTitle().contains("Upgrade Menu")) event.setCancelled(true);
 
         if (event.getCurrentItem().equals(upgradeListener.efficiencyUpgrade())){
             event.setCancelled(true);

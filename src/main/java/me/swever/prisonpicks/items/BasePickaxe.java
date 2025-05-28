@@ -17,7 +17,6 @@ public abstract class BasePickaxe {
 
         //Tweak the BASE item to what we want
         meta.setUnbreakable(true);
-        meta.addEnchant(Enchantment.EFFICIENCY, 5, true);
         meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES); //Hides stuff like "unbreakable", etc in the lore
 
         //Apply the new changes we have made

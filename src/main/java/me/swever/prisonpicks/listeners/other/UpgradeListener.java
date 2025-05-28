@@ -47,4 +47,14 @@ public class UpgradeListener implements Listener {
         return item;
     }
 
+    public ItemStack fortuneUpgrade(){
+        ItemStack item = new ItemStack(Material.EMERALD);
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName(ChatColour.message("&cFortune Upgrade"));
+
+        item.setItemMeta(meta);
+
+        return item;
+    }
+
 }

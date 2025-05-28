@@ -14,14 +14,22 @@ public class FortuneUpgradeMenuListener implements Listener {
     public FortuneUpgradeMenuListener(UpgradeListener upgradeListener) {this.upgradeListener =upgradeListener;}
 
     @EventHandler
-    public void onFortuneUpgrade(InventoryClickEvent event){
+    public void onFortuneUpgrade(InventoryClickEvent event) {
 
         Player player = (Player) event.getWhoClicked();
-        if(!event.getView().getTitle().contains("Upgrade Menu")) event.setCancelled(true);
+        if (!event.getView().getTitle().contains("Upgrade Menu")) event.setCancelled(true);
+
+        if (player.getInventory().getItemInMainHand().containsEnchantment(Enchantment.SILK_TOUCH)) {
+            player.closeInventory();
+            player.sendMessage(ChatColour.message("&cYou are unable to add FORTUNE to this item"));
+            return;
+        }
+
 
         if (event.getCurrentItem().equals(upgradeListener.fortuneUpgrade())){
             event.setCancelled(true);
             int fortLevel = player.getInventory().getItemInMainHand().getEnchantmentLevel(Enchantment.FORTUNE);
+
             if (fortLevel == 5) {
                 player.sendMessage(ChatColour.message("&cMax Fortune Level Reached! "));
                 return;

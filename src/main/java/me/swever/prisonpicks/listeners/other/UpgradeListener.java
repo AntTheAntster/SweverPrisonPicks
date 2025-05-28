@@ -33,6 +33,7 @@ public class UpgradeListener implements Listener {
     public Inventory upgradeMenu(Player player){
         Inventory inv = Bukkit.createInventory(player, 27, ChatColour.message("&eUpgrade Menu"));
         inv.setItem(10, efficiencyUpgrade());
+        inv.setItem(12, fortuneUpgrade());
 
         return inv;
     }

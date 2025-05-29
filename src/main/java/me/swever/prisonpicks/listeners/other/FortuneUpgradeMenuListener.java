@@ -11,7 +11,7 @@ import java.net.http.WebSocket;
 
 public class FortuneUpgradeMenuListener implements Listener {
     private UpgradeListener upgradeListener;
-    public FortuneUpgradeMenuListener(UpgradeListener upgradeListener) {this.upgradeListener =upgradeListener;}
+    public FortuneUpgradeMenuListener(UpgradeListener upgradeListener) {this.upgradeListener = upgradeListener;}
 
     @EventHandler
     public void onFortuneUpgrade(InventoryClickEvent event) {

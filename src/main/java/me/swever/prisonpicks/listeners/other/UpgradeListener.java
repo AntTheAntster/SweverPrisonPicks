@@ -10,6 +10,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -29,12 +30,21 @@ public class UpgradeListener implements Listener {
         if (player.isSneaking() && held.isSimilar(pickaxes.getBlockPickaxe())) {
             player.openInventory(upgradeMenu(player));
         }
+        if (player.isSneaking() && held.isSimilar(pickaxes.getBountifulPickaxe())) {
+            player.openInventory(upgradeMenu(player));
+        }
+        if (player.isSneaking() && held.isSimilar(pickaxes.getSmeltersPickaxe())) {
+            player.openInventory(upgradeMenu(player));
+        }
+        if (player.isSneaking() && held.isSimilar(pickaxes.getExplosivePickaxe())) {
+            player.openInventory(upgradeMenu(player));
+        }
     }
-
     public Inventory upgradeMenu(Player player){
         Inventory inv = Bukkit.createInventory(player, 27, ChatColour.message("&eUpgrade Menu"));
         inv.setItem(10, efficiencyUpgrade());
         inv.setItem(12, fortuneUpgrade());
+        inv.setItem(14, silktouchUpgrade());
 
         return inv;
     }
@@ -59,4 +69,12 @@ public class UpgradeListener implements Listener {
         return item;
     }
 
+    public ItemStack silktouchUpgrade() {
+        ItemStack item = new ItemStack(Material.DIAMOND_ORE);
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName(ChatColour.message("&5Silk Touch Upgrade"));
+
+        item.setItemMeta(meta);
+        return item;
+    }
 }

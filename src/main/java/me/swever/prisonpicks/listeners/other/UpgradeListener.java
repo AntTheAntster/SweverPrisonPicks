@@ -22,10 +22,11 @@ public class UpgradeListener implements Listener {
     }
 
     @EventHandler
-    public void onRightClick(PlayerInteractEvent event){
+    public void onRightClick(PlayerInteractEvent event) {
         Player player = event.getPlayer();
+        ItemStack held = player.getInventory().getItemInMainHand();
 
-        if (player.isSneaking() && player.getInventory().getItemInMainHand().equals(pickaxes.getBlockPickaxe())){
+        if (player.isSneaking() && held != null && held.isSimilar(pickaxes.getBlockPickaxe())) {
             player.openInventory(upgradeMenu(player));
         }
     }

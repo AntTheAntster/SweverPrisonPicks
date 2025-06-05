@@ -25,6 +25,10 @@ public class BlockPickaxe extends BasePickaxe {
 
     private void makeBlockPickaxe(){
         ItemMeta meta = blockPickaxe.getItemMeta();
+
+        NamespacedKey blockPickaxeKey = new NamespacedKey(plugin, "block_pickaxe");
+        meta.getPersistentDataContainer().set(blockPickaxeKey, PersistentDataType.INTEGER, 1);
+
         for (String s : plugin.getConfig().getStringList("Block Pickaxe.Lore")) {
             lore.add(ChatColour.message(s));
         }
@@ -32,10 +36,7 @@ public class BlockPickaxe extends BasePickaxe {
         meta.setLore(lore);
 
         blockPickaxe.setItemMeta(meta);
-//have i done this correctly i used google to research how to add an NBT
-        NamespacedKey key = new NamespacedKey(plugin, "block_pickaxe"); //This creates a unique key for item (Block_Pickaxe)
-        meta.getPersistentDataContainer().set(key, PersistentDataType.INTEGER, 1);//here i am setting a hidden interger as 1 in the items metadata
-        //getPersistantDataContainer stores the data in the items meta
+
     }
 
 

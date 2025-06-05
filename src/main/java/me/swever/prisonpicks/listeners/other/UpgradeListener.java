@@ -5,21 +5,32 @@ import me.swever.prisonpicks.utils.ChatColour;
 import me.swever.prisonpicks.utils.Pickaxes;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.persistence.PersistentDataType;
 
 public class UpgradeListener implements Listener {
     private Pickaxes pickaxes;
     private PrisonPicks plugin;
+    private final NamespacedKey blockPickaxeKey;
+    private final NamespacedKey bountifulPickaxeKey;
+    private final NamespacedKey explosivePickaxeKey;
+    private final NamespacedKey smeltersPickaxeKey;
+
+
     public UpgradeListener(Pickaxes pickaxes, PrisonPicks plugin) {
         this.pickaxes = pickaxes;
         this.plugin = plugin;
+        this.blockPickaxeKey =  new NamespacedKey(plugin, "block_pickaxe");
+        this.bountifulPickaxeKey = new NamespacedKey(plugin,"bountiful_pickaxe");
+        this.explosivePickaxeKey = new NamespacedKey(plugin, "explosive_pickaxe");
+        this.smeltersPickaxeKey = new NamespacedKey(plugin, "smelters_pickaxe");
     }
 
     @EventHandler
@@ -27,19 +38,29 @@ public class UpgradeListener implements Listener {
         Player player = event.getPlayer();
         ItemStack held = player.getInventory().getItemInMainHand();
 
-        if (player.isSneaking() && held.equals(pickaxes.getBlockPickaxe())) {
+        if (player.isSneaking() && hasPersistentKey(held, blockPickaxeKey)) {
             player.openInventory(upgradeMenu(player));
         }
-        if (player.isSneaking() && held.equals(pickaxes.getBountifulPickaxe())) {
+        if (player.isSneaking() && hasPersistentKey(held, bountifulPickaxeKey)) {
             player.openInventory(upgradeMenu(player));
         }
-        if (player.isSneaking() && held.equals(pickaxes.getSmeltersPickaxe())) {
+        if (player.isSneaking() && hasPersistentKey(held, explosivePickaxeKey)) {
             player.openInventory(upgradeMenu(player));
         }
-        if (player.isSneaking() && held.equals(pickaxes.getExplosivePickaxe())) {
+        if (player.isSneaking() && hasPersistentKey(held, smeltersPickaxeKey)) {
             player.openInventory(upgradeMenu(player));
         }
     }
+
+    private boolean hasPersistentKey(ItemStack held, NamespacedKey Key) {
+
+        if (held == null || !held.hasItemMeta()) return false;
+
+        ItemMeta meta = held.getItemMeta();
+
+        return meta.getPersistentDataContainer().has(Key, PersistentDataType.INTEGER);
+    }
+
     public Inventory upgradeMenu(Player player){
         Inventory inv = Bukkit.createInventory(player, 27, ChatColour.message("&eUpgrade Menu"));
         inv.setItem(10, efficiencyUpgrade());

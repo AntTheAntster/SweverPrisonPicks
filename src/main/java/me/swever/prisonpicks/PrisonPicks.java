@@ -9,10 +9,7 @@ import me.swever.prisonpicks.listeners.BlockPickaxeListener;
 import me.swever.prisonpicks.listeners.BountifulPickaxeListener;
 import me.swever.prisonpicks.listeners.ExplosivePickaxeListener;
 import me.swever.prisonpicks.listeners.SmeltersPickaxeListener;
-import me.swever.prisonpicks.listeners.other.AdminGUIListener;
-import me.swever.prisonpicks.listeners.other.EfficiencyUpgradeMenuListener;
-import me.swever.prisonpicks.listeners.other.FortuneUpgradeMenuListener;
-import me.swever.prisonpicks.listeners.other.UpgradeListener;
+import me.swever.prisonpicks.listeners.other.*;
 import me.swever.prisonpicks.menus.AdminGUI;
 import me.swever.prisonpicks.utils.Pickaxes;
 import org.bukkit.Bukkit;
@@ -60,6 +57,8 @@ public class PrisonPicks extends JavaPlugin {
         pm.registerEvents(new UpgradeListener(pickaxes, this), this);
         pm.registerEvents(new EfficiencyUpgradeMenuListener(upgradeListener), this);
         pm.registerEvents(new FortuneUpgradeMenuListener(upgradeListener), this);
+        pm.registerEvents(new SilkTouchUpgradeMenuListener(upgradeListener), this);
+
 
         pm.registerEvents(new AdminGUIListener(adminGUI, pickaxes), this);
     }

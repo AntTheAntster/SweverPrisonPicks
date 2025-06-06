@@ -58,7 +58,7 @@ public class UpgradeListener implements Listener {
 
         ItemMeta meta = held.getItemMeta();
 
-        return meta.getPersistentDataContainer().has(Key, PersistentDataType.INTEGER);
+        return meta.getPersistentDataContainer().has(Key, PersistentDataType.STRING);
     }
 
     public Inventory upgradeMenu(Player player){

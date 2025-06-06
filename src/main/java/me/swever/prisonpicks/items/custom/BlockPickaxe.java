@@ -27,7 +27,7 @@ public class BlockPickaxe extends BasePickaxe {
         ItemMeta meta = blockPickaxe.getItemMeta();
 
         NamespacedKey blockPickaxeKey = new NamespacedKey(plugin, "block_pickaxe");
-        meta.getPersistentDataContainer().set(blockPickaxeKey, PersistentDataType.INTEGER, 1);
+        meta.getPersistentDataContainer().set(blockPickaxeKey, PersistentDataType.STRING, "block_pickaxe_data");
 
         for (String s : plugin.getConfig().getStringList("Block Pickaxe.Lore")) {
             lore.add(ChatColour.message(s));

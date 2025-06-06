@@ -14,6 +14,7 @@ public class SmeltersPickaxe extends BasePickaxe {
 
     private PrisonPicks plugin;
     public SmeltersPickaxe (PrisonPicks plugin) {
+        super(plugin);
         this.plugin = plugin;
         makeSmeltersPickaxe();
     }
@@ -24,9 +25,9 @@ public class SmeltersPickaxe extends BasePickaxe {
 
     private void makeSmeltersPickaxe(){
         ItemMeta meta = smeltersPickaxe.getItemMeta();
+        if  (meta == null){ return; }
 
-        NamespacedKey smeltersPickaxeKey = new NamespacedKey(plugin, "smelters_pickaxe");
-        meta.getPersistentDataContainer().set(smeltersPickaxeKey, PersistentDataType.INTEGER, 1);
+        applyPickaxeType(meta, "smelters_pickaxe");
 
         for (String s : plugin.getConfig().getStringList("Smelters Pickaxe.Lore")){
             lore.add(ChatColour.message(s));

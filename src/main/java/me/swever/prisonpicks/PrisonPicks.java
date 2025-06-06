@@ -1,6 +1,7 @@
 package me.swever.prisonpicks;
 
 import me.swever.prisonpicks.commands.TestCommand;
+import me.swever.prisonpicks.items.BasePickaxe;
 import me.swever.prisonpicks.items.custom.BlockPickaxe;
 import me.swever.prisonpicks.items.custom.BountifulPickaxe;
 import me.swever.prisonpicks.items.custom.ExplosivePickaxe;
@@ -13,7 +14,6 @@ import me.swever.prisonpicks.listeners.other.*;
 import me.swever.prisonpicks.menus.AdminGUI;
 import me.swever.prisonpicks.utils.Pickaxes;
 import org.bukkit.Bukkit;
-import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 

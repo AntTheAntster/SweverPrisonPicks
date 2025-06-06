@@ -12,10 +12,11 @@ import java.util.ArrayList;
 
 public class BlockPickaxe extends BasePickaxe {
 
+
     //Instantiate the class so that the pickaxe actually exists (Added to Setup() function in MAIN class)
-    private PrisonPicks plugin;
-    public BlockPickaxe(PrisonPicks plugin){
-        this.plugin = plugin;
+    public BlockPickaxe(PrisonPicks plugin) {
+        super(plugin);
+
         makeBlockPickaxe();
     }
     //Make custom pickaxe name and point it to the BASE
@@ -25,9 +26,9 @@ public class BlockPickaxe extends BasePickaxe {
 
     private void makeBlockPickaxe(){
         ItemMeta meta = blockPickaxe.getItemMeta();
+        if (meta == null){ return; }
 
-        NamespacedKey blockPickaxeKey = new NamespacedKey(plugin, "block_pickaxe");
-        meta.getPersistentDataContainer().set(blockPickaxeKey, PersistentDataType.STRING, "block_pickaxe_data");
+        applyPickaxeType(meta, "block_pickaxe");
 
         for (String s : plugin.getConfig().getStringList("Block Pickaxe.Lore")) {
             lore.add(ChatColour.message(s));

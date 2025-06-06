@@ -140,6 +140,10 @@ public class BountifulPickaxeListener implements Listener {
 
         //Negative Values for Listener purposes
         values.put(Material.STONE, -1);
+        values.put(Material.DIRT, -1);
+        values.put(Material.GRASS_BLOCK, -1);
+        values.put(Material.GRAVEL, -1);
+        values.put(Material.SAND, -1);
         values.put(Material.DEEPSLATE, -1);
         values.put(Material.COBBLESTONE, -1);
         values.put(Material.COBBLED_DEEPSLATE, -1);

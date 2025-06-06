@@ -14,6 +14,7 @@ public class ExplosivePickaxe extends BasePickaxe {
 
     private PrisonPicks plugin;
     public ExplosivePickaxe(PrisonPicks plugin){
+        super(plugin);
         this.plugin = plugin;
         makeExplosivePickaxe();
     }
@@ -24,9 +25,9 @@ public class ExplosivePickaxe extends BasePickaxe {
 
     private void makeExplosivePickaxe(){
         ItemMeta meta = explosivePickaxe.getItemMeta();
+        if (meta == null){ return; }
 
-        NamespacedKey explosivePickaxeKey = new NamespacedKey(plugin, "explosive_pickaxe");
-        meta.getPersistentDataContainer().set(explosivePickaxeKey, PersistentDataType.INTEGER, 1);
+        applyPickaxeType(meta, "explosive_pickaxe");
 
         for (String s : plugin.getConfig().getStringList("Explosive Pickaxe.Lore")){
             lore.add(ChatColour.message(s));
